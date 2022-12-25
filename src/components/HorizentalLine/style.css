@@ -1,0 +1,32 @@
+
+.horizental-line{
+    width: 80%;
+    text-align: center;
+    color: #BABABA;
+    position: relative;
+    margin: 2rem 0;
+}
+.horizental-line::after{
+    content:'';
+    position: absolute;
+    height: 3px;
+    width: 45%;
+    right: 0;
+    top: 50%;
+    background-color: #F5F5F5;
+}
+.horizental-line::before{
+    content:'';
+    position: absolute;
+    height: 3px;
+    width: 45%;
+    left: 0;
+    top: 50%;
+    background-color: #F5F5F5;
+}
+
+@media screen and (max-width:992px) {
+    .horizental-line{
+        width: 100%;
+    }
+}

@@ -1,0 +1,11 @@
+
+.Arrow_back_container{
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.Arrow_back_container h4{
+    font-size: 1rem;
+    color: #8692A6;
+}

@@ -1,0 +1,30 @@
+
+.left-content-text{
+    margin: auto;
+}
+
+.left-content-text h4{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    color: #fff;
+}
+
+.left-content-text .content-writer{
+    margin-top: 4rem;
+}
+
+.left-content-text .content-shape{
+    margin-top: 2rem;
+    margin-left: 85%;
+}
+
+.left-content-text .content-image{
+    position: absolute;
+    right: -10rem;
+    top: 55%;
+}
+
+.left-content-text .font-grey{
+    color: #696F79 ; 
+}
