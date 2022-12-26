@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PasswordStrength from '../PasswordStrength'
 import HorizentalLine from '../HorizentalLine'
+import AlertMsg from '../AlertMsg'
+import Swal from 'sweetalert2'
 import './style.css'
 
 export default class RegisterForm extends Component {
@@ -10,7 +12,9 @@ export default class RegisterForm extends Component {
     password:'',
     password2:'',
     trems:false,
-    passwordStrength:0
+    passwordStrength:0,
+    alert:'',
+    msg:'',
   }
 
   onChange = (e)=>{
@@ -50,13 +54,17 @@ export default class RegisterForm extends Component {
   handleSubmit = (e) =>{
     e.preventDefault()
     if(this.state.password.length < 8){
-      alert('your password should be at least 8 characters.')
+      this.setState({alert:'error',msg:'your password should be at least 8 characters'})
     }else if(this.state.password !== this.state.password2){
-      alert('please make sure that passwords matches!')
+      this.setState({alert:'error',msg:'please make sure that passwords matched'})
     }else if(this.state.passwordStrength < 60){
-      alert('your password strength should be at lease Medium strength.')
+      this.setState({alert:'error',msg:'your password strength should be at lease Medium strength.'})
     }else{
-      alert('registered successfuly!')
+      Swal.fire(
+        'Good job!',
+        `registered successfuly!, welcome ${this.state.email.split('@')[0]}`,
+        'success'
+      )
       const newUser = {email:this.state.email,password:this.state.password}
       this.props.addUser(newUser);
       this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0})
@@ -87,8 +95,12 @@ export default class RegisterForm extends Component {
             <input type="password" name='password2' value={this.state.password2} onChange={this.onChange} placeholder='Repeat password' required/>
           </div>
           <div className='form-checkbox'>
-            <input type="checkbox" name="trems" id="terms" onChange={this.onChech} required/>I agree to terms & conditions
+            <label htmlFor="trems">
+            <input type="checkbox" name="trems" id="terms" onChange={this.onChech} required/>
+            I agree to terms & conditions
+            </label>
           </div>
+          {this.state.alert === 'error' && <AlertMsg alertType={this.state.alert}>{this.state.msg}</AlertMsg>}
           <div className='form-submit'>
             <button type='submit'>Register Account</button>
           </div>

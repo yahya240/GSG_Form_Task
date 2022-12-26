@@ -1,0 +1,22 @@
+/* error message */
+
+.error-message{
+    font-size: 1rem;
+    background-color: rgb(238, 94, 94);
+    color: #fff;
+    padding: 0.4rem;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+.success-message{
+    font-size: 1rem;
+    background-color: rgb(44, 212, 44);
+    color: #fff;
+    padding: 0.4rem;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+}

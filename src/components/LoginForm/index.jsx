@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import SocialMedia from '../SocialMedia'
 import HorizentalLine from '../HorizentalLine'
+import AlertMsg from '../AlertMsg'
 import './style.css'
 
 export default class LoginForm extends Component {
 
   state = {
     email:'',
-    password:''
+    password:'',
+    alert:'',
+    msg:'',
   }
 
   onChange = (e)=>{
@@ -18,13 +21,13 @@ export default class LoginForm extends Component {
   handleSubmit = (e) =>{
     e.preventDefault()
     if(this.state.password.length < 8){
-      alert('your password should be at least 8 characters')
+      this.setState({alert:'error',msg:'your password should be at least 8 characters'})
     }else if(this.props.checkUser(this.state) === 'inValid'){
-      alert('this user email dosent exist.')
+      this.setState({alert:'error',msg:'this user email dosent exist.'})
     }else if(this.props.checkUser(this.state) === 'invalid password'){
-      alert('the password is worng, try again.')
+      this.setState({alert:'error',msg:'the password is worng, try again.'})
     }else{
-      alert(`logged in succsessfuly, welcome again ${this.state.email.split('@')[0]}`)
+      this.setState({alert:'success',msg:`logged in succsessfuly, welcome again ${this.state.email.split('@')[0]}`})
       this.setState({email:'',password:''})
     }
   }
@@ -39,6 +42,7 @@ export default class LoginForm extends Component {
         <SocialMedia />
         <HorizentalLine />
         <form onSubmit={this.handleSubmit}>
+        {this.state.alert === 'success' && <AlertMsg alertType={this.state.alert}>{this.state.msg}</AlertMsg>}
           <div className='form-input'>
               <label htmlFor="email">Your email</label>
               <input type="email" name='email' value={this.state.email} onChange={this.onChange} placeholder='Enter email address' required/>
@@ -47,6 +51,7 @@ export default class LoginForm extends Component {
               <label htmlFor="password">Enter your password</label>
               <input type="password" name='password' value={this.state.password} onChange={this.onChange} placeholder='Password' required/>
           </div>
+          {this.state.alert === 'error' && <AlertMsg alertType={this.state.alert}>{this.state.msg}</AlertMsg>}
           <div className='form-submit'>
               <button type='submit'>Login</button>
           </div>
