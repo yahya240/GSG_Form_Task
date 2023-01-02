@@ -72,8 +72,6 @@ export default class RegisterForm extends Component {
       const newUser = {email:this.state.email,password:this.state.password}
       this.props.addUser(newUser);
       this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
-      // this.props.changePage('login')
-      // useNavigate('/profile')
     }
   }
 
@@ -115,7 +113,6 @@ export default class RegisterForm extends Component {
             <HorizentalLine />
         </form>
         <Link to='/' className='login-button' >login</Link>
-        {/* <button className='login-button' onClick={()=>this.props.changePage('login')}>login</button> */}
       </div>
     )
   }

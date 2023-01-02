@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import {Routes,Route} from 'react-router-dom'
-import MainRoutes from './routes/MainRoutes'
+import {MainRoutes} from './routes'
 
 class App extends Component {
-
-
   render(){
     return(
       <>

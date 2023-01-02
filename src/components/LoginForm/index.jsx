@@ -30,7 +30,6 @@ export default class LoginForm extends Component {
     }else if(this.props.checkUser(this.state) === 'invalid password'){
       this.setState({alert:'error',msg:'the password is worng, try again.'})
     }else{
-      // this.setState({alert:'success',msg:`logged in succsessfuly, welcome again ${this.state.email.split('@')[0]}`})
       Swal.fire(
         `Welcome Back ${this.state.email.split('@')[0]}`,
         `Loged In successfuly!`,
@@ -72,7 +71,6 @@ export default class LoginForm extends Component {
         <div className='form-login-footer'>
             <h4>Dont have an account? </h4>
             <Link className='form-login-footer-btn' to='/register'>Register</Link>
-            {/* <button onClick={()=> this.props.changePage('register')}>Register</button> */}
         </div>
       </div>
     )
