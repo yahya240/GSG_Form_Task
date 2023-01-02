@@ -1,0 +1,68 @@
+
+.gamer-profile-card{
+    width: 36.75rem;
+    height: 19.375rem;
+    position: relative;
+    background: #D9D9D9;
+    border-radius: 60px;
+    /* overflow: hidden; */
+}
+
+
+.gamer-profile-card-inner-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gamer-profile-card-game-name{
+    position: absolute;
+    top: -10rem;
+    right: -12rem;
+}
+
+.gamer-profile-card-text{
+    max-width: 75%;
+    position: absolute;
+    bottom: 25px;
+    right: 18px;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-align: right;
+
+    color: #FFFFFF;
+}
+
+.card-img-border{
+    border-bottom-left-radius: 60px;
+}
+
+/* fliped card */
+
+.gamer-profile-card-inner-img-flip{
+    position: absolute;
+    top: 0;
+    right: -2rem;
+}
+
+.gamer-profile-card-game-name-flip{
+    position: absolute;
+    top: -4rem;
+    left: -4.5rem;
+}
+
+.gamer-profile-card-text-flip{
+    max-width: 75%;
+    position: absolute;
+    bottom: 25px;
+    left: 18px;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-align: left;
+
+    color: #FFFFFF;
+}
+
+

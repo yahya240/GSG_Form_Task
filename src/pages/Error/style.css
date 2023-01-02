@@ -1,0 +1,34 @@
+
+.error-page{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #314051;
+    text-align: center;
+}
+
+.error-page h2{
+    font-size: 10rem;
+}
+.error-page h4{
+    font-size: 3rem;
+    font-weight: 300;
+}
+.error-page p{
+    font-size: 1rem;
+}
+.error-page button{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #f3921c;
+    border: none;
+    width: 20rem;
+    height: 2rem;
+    cursor: pointer;
+    margin: 1rem 0;
+}

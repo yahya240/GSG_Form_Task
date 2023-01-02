@@ -1,0 +1,14 @@
+.gamer-profile-footer-section{
+    /* max-width: 89vw; */
+    width:100%;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.gamer-profile-main{
+    width: 100%;
+}

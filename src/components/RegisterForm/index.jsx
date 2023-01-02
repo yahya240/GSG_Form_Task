@@ -3,6 +3,7 @@ import PasswordStrength from '../PasswordStrength'
 import HorizentalLine from '../HorizentalLine'
 import AlertMsg from '../AlertMsg'
 import Swal from 'sweetalert2'
+import {Link,Navigate} from 'react-router-dom'
 import './style.css'
 
 export default class RegisterForm extends Component {
@@ -15,7 +16,10 @@ export default class RegisterForm extends Component {
     passwordStrength:0,
     alert:'',
     msg:'',
+    goToLogin:false,
   }
+
+  
 
   onChange = (e)=>{
     let strength = 0;
@@ -61,18 +65,22 @@ export default class RegisterForm extends Component {
       this.setState({alert:'error',msg:'your password strength should be at lease Medium strength.'})
     }else{
       Swal.fire(
-        'Good job!',
-        `registered successfuly!, welcome ${this.state.email.split('@')[0]}`,
+        `Hello ${this.state.email.split('@')[0]}`,
+        `registered successfuly!`,
         'success'
       )
       const newUser = {email:this.state.email,password:this.state.password}
       this.props.addUser(newUser);
-      this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0})
-      this.props.changePage('login')
+      this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+      // this.props.changePage('login')
+      // useNavigate('/profile')
     }
   }
 
   render() {
+    if(this.state.goToLogin){
+      return <Navigate to='/' />
+    }
     return (
         <div className='form-section'>
         <div className='form-header'>
@@ -106,7 +114,8 @@ export default class RegisterForm extends Component {
           </div>
             <HorizentalLine />
         </form>
-        <button className='login-button' onClick={()=>this.props.changePage('login')}>login</button>
+        <Link to='/' className='login-button' >login</Link>
+        {/* <button className='login-button' onClick={()=>this.props.changePage('login')}>login</button> */}
       </div>
     )
   }

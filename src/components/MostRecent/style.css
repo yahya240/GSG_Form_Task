@@ -1,0 +1,86 @@
+
+.gamer-profile-footer-most-recent h2{
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 43px;
+}
+
+.gamer-profile-footer-most-recent-content{
+    margin-top: 1.2rem;
+    position: relative;
+}
+
+.gamer-profile-footer-most-recent-content-trophy{
+    position: absolute;
+    top: -15px;
+    right: 0;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,  #affd9c 0%,#affd9c 47%,#affd9c 47%,#32FB00 47%,#32FB00 48%);
+    box-shadow: 0px 0px 10px #32FB00,0px 0px 94.5px #32FB00, 0px 0px 27px #b0f1a0, 0px 0px 13.5px #32FB00;
+}
+
+/* title */
+
+.gamer-profile-footer-most-recent-content-title{
+    position: absolute;
+    top: 1.4rem;
+    right: 11rem;
+    line-height: 31px;
+}
+.gamer-profile-footer-most-recent-content-title h4{
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    color: #FFFFFF;
+    text-align: right;
+    text-transform: uppercase;
+}
+.gamer-profile-footer-most-recent-content-title p{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 31px;
+    color: #FFFFFF;
+    text-align: right;
+    text-transform: lowercase;
+}
+
+/* description */
+
+.gamer-profile-footer-most-recent-content-description-background{
+    width: 100%;
+    height: 7.375rem;
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), radial-gradient(97.57% 210.75% at 0.9% 2.98%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    opacity: 0.7;
+    backdrop-filter: blur(5px);    
+    border-radius: 0px 0px 45px 45px;
+    color: #FFFFFF;
+
+    position: absolute;
+    bottom: 0rem;
+
+}
+.gamer-profile-footer-most-recent-content-description{
+    position: absolute;
+    bottom: 40px;
+    left: 24px;
+}
+.gamer-profile-footer-most-recent-content-description h4{
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+.gamer-profile-footer-most-recent-content-description p{
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 23px;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+}
