@@ -1,0 +1,7 @@
+export {default as GamerSidebar} from './GamerSidebar'
+export {default as GamerProfileContainer} from './GamerProfileContainer'
+export {default as ProfileHeader} from './ProfileHeader'
+export {default as NewGames} from './NewGames'
+export {default as LastPlayed} from './LastPlayed'
+export {default as MostRecent} from './MostRecent'
+export {default as GamerFriends} from './GamerFriends'

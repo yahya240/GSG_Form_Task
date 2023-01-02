@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import SocialMedia from '../SocialMedia'
 import HorizentalLine from '../HorizentalLine'
 import AlertMsg from '../AlertMsg'
+import Swal from 'sweetalert2'
+import {Link,Navigate} from 'react-router-dom'
 import './style.css'
 
 export default class LoginForm extends Component {
@@ -11,6 +13,7 @@ export default class LoginForm extends Component {
     password:'',
     alert:'',
     msg:'',
+    goToProfile:false,
   }
 
   onChange = (e)=>{
@@ -27,12 +30,22 @@ export default class LoginForm extends Component {
     }else if(this.props.checkUser(this.state) === 'invalid password'){
       this.setState({alert:'error',msg:'the password is worng, try again.'})
     }else{
-      this.setState({alert:'success',msg:`logged in succsessfuly, welcome again ${this.state.email.split('@')[0]}`})
-      this.setState({email:'',password:''})
+      // this.setState({alert:'success',msg:`logged in succsessfuly, welcome again ${this.state.email.split('@')[0]}`})
+      Swal.fire(
+        `Welcome Back ${this.state.email.split('@')[0]}`,
+        `Loged In successfuly!`,
+        'success'
+      )
+      this.setState({email:'',password:'',goToProfile:true})
     }
   }
 
   render() {
+
+    if(this.state.goToProfile){
+      return <Navigate to='/profile' />
+    }
+
     return (
       <div className='form-section login-form-section'>
         <div className='form-header form-login-header'>
@@ -58,7 +71,8 @@ export default class LoginForm extends Component {
         </form>
         <div className='form-login-footer'>
             <h4>Dont have an account? </h4>
-            <button onClick={()=> this.props.changePage('register')}>Register</button>
+            <Link className='form-login-footer-btn' to='/register'>Register</Link>
+            {/* <button onClick={()=> this.props.changePage('register')}>Register</button> */}
         </div>
       </div>
     )

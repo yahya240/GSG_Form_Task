@@ -1,0 +1,40 @@
+
+.gamer-profile-new-games{
+    /* width: 1606px; */
+    /* max-width:100rem; */
+    /* max-width: 88vw; */
+    /* width: 100%; */
+    width: 89vw;
+    max-width: 100%;
+}
+
+.gamer-profile-new-games h2{
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 43px;
+    font-family: 'Gilroy', 'Inter';
+    padding: 0 2.5rem;
+}
+
+.gamer-profile-new-games-cards{
+    display: flex;
+    gap: 2.43rem;
+    margin: 5.25rem 0;
+    padding: 0 2rem;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+.gamer-profile-new-games-cards::-webkit-scrollbar {
+    width: 1em;
+  }
+   
+.gamer-profile-new-games-cards::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+.gamer-profile-new-games-cards::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+}

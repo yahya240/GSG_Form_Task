@@ -1,0 +1,31 @@
+
+.gamer-profile-header{
+    /* width: 89vw; */
+    /* width: 88vw; */
+    max-width: 100%;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 2rem;
+    padding-right: 1rem;
+}
+
+.gamer-profile-header-container{
+    display: flex;
+    gap: 22px;
+}
+
+.gamer-profile-header-container img{
+    width: 6.87rem;
+    height: 6.87rem;
+}
+
+.gamer-profile-header-content{
+    text-align: right;
+    margin: auto 0;
+}
+
+.gamer-profile-header-content h2{
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+}
