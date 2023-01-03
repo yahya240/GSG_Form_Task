@@ -29,7 +29,7 @@ export default class MainRoutes extends Component {
       <Routes>
             <Route index element={<Login checkUser={this.checkUser} />} />
             <Route path='register' element={<Register addUser={this.addUser} />} />
-            <Route path='profile' element={this.state.users.length > 0? <GamerProfile user={this.state.users[0]} /> : <Navigate to='/' />} />
+            <Route path='profile/:id' element={this.state.users.length > 0? <GamerProfile /> : <Navigate to='/' />} />
             <Route path='*' element={<Error />}/>
       </Routes>
     )

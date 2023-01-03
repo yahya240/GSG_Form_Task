@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { GamerSidebar,GamerProfileContainer,ProfileHeader,NewGames,LastPlayed,MostRecent,GamerFriends } from '../../components'
-
-
 import './style.css'
 
 export default class GamerProfile extends Component {
@@ -10,7 +8,7 @@ export default class GamerProfile extends Component {
       <GamerProfileContainer>
         <GamerSidebar />
         <section className="gamer-profile-main">
-          <ProfileHeader user={this.props.user} />
+          <ProfileHeader />
           <NewGames />
           <section className='gamer-profile-footer-section'>
             <LastPlayed />

@@ -14,6 +14,7 @@ export default class LoginForm extends Component {
     alert:'',
     msg:'',
     goToProfile:false,
+    profilePath:''
   }
 
   onChange = (e)=>{
@@ -35,14 +36,14 @@ export default class LoginForm extends Component {
         `Loged In successfuly!`,
         'success'
       )
-      this.setState({email:'',password:'',goToProfile:true})
+      this.setState({email:'',password:'',goToProfile:true,profilePath:`${this.state.email.split('@')[0]}`})
     }
   }
 
   render() {
 
     if(this.state.goToProfile){
-      return <Navigate to='/profile' />
+      return <Navigate to={`/profile/${this.state.profilePath}`} />
     }
 
     return (
