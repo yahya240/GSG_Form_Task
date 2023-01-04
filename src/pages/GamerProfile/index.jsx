@@ -5,7 +5,7 @@ import './style.css'
 export default class GamerProfile extends Component {
   
   state ={
-    theme: 'dark'
+    theme: 'light'
   }
 
   toggleTheme = () =>{
