@@ -6,7 +6,7 @@ A custom not found page
 Version 1 first completed version 😉
 https://react-form-gsg-v1.netlify.app/
 
-Version 2 removed alerts and made custom messages cuz shoman dosent like alerts 😒😒
+Version 2 removed alerts and made custom messages because shoman dosent like alerts 😒😒
 https://react-form-gsg-v2.netlify.app/
 
 Version 3 completed the 50 shekel task with minimum requirements 🤓
