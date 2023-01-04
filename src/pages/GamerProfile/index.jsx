@@ -3,17 +3,26 @@ import { GamerSidebar,GamerProfileContainer,ProfileHeader,NewGames,LastPlayed,Mo
 import './style.css'
 
 export default class GamerProfile extends Component {
+  
+  state ={
+    theme: 'dark'
+  }
+
+  toggleTheme = () =>{
+    this.setState({theme:this.state.theme === 'light'? 'dark' : 'light'})
+  }
+  
   render() {
     return (
-      <GamerProfileContainer>
-        <GamerSidebar />
+      <GamerProfileContainer theme={this.state.theme}>
+        <GamerSidebar theme={this.state.theme} toggleTheme={this.toggleTheme} />
         <section className="gamer-profile-main">
-          <ProfileHeader />
-          <NewGames />
+          <ProfileHeader theme={this.state.theme} />
+          <NewGames theme={this.state.theme} />
           <section className='gamer-profile-footer-section'>
-            <LastPlayed />
-            <MostRecent />
-            <GamerFriends />
+            <LastPlayed theme={this.state.theme} />
+            <MostRecent theme={this.state.theme} />
+            <GamerFriends theme={this.state.theme} />
           </section>
         </section>
       </GamerProfileContainer>

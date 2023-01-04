@@ -4,7 +4,10 @@
     max-width: 100vw;
     min-height: 100vh;
     background: linear-gradient(112.14deg, #F8F8F8 1.17%, #FFFFFF 96.84%);
-    /* background: linear-gradient(112.14deg, #222222 1.17%, #222222 96.84%); */
     display: grid;
     grid-template-columns: 8rem 1fr;
+}
+
+.bg-dark {
+    background: linear-gradient(112.14deg, #222222 1.17%, #222222 96.84%);
 }

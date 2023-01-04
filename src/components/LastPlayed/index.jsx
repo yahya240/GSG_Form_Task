@@ -10,12 +10,12 @@ export default class LastPlayed extends Component {
   render() {
     return (
     <div className='gamer-profile-footer-last-played'>
-        <h2>last played</h2>
+        <h2 className={` ${this.props.theme === 'dark' ? 'dark-theme-text' : ''} `}>last played</h2>
         <div className="last-played-items">
-          <LastPlayedItem img={playedItem1} text='Hogwarts Legacy 50%'/>
-          <LastPlayedItem img={playedItem2} text='God Of War: Ragnarök 72.5%'/>
-          <LastPlayedItem img={playedItem3} text='Crash Bandicoot N. Sane Trilogy 34%'/>
-          <LastPlayedItem img={playedItem4} text='Dying Light 2 Stay Human 100%'/>
+          <LastPlayedItem theme={this.props.theme} img={playedItem1} text='Hogwarts Legacy 50%'/>
+          <LastPlayedItem theme={this.props.theme} img={playedItem2} text='God Of War: Ragnarök 72.5%'/>
+          <LastPlayedItem theme={this.props.theme} img={playedItem3} text='Crash Bandicoot N. Sane Trilogy 34%'/>
+          <LastPlayedItem theme={this.props.theme} img={playedItem4} text='Dying Light 2 Stay Human 100%'/>
         </div>
     </div>
     )
