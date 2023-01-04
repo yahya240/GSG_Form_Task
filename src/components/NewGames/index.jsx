@@ -19,20 +19,23 @@ export default class NewGames extends Component {
   render() {
     return (
         <div className="gamer-profile-new-games">
-        <h2>NEW GAMES </h2>
+        <h2 className={` ${this.props.theme === 'dark' ? 'dark-theme-text' : ''} `}>NEW GAMES </h2>
         <div className="gamer-profile-new-games-cards">
             <GameCard  
+                theme={this.props.theme}
                 bgImage={gamerCardBg1}
                 innerImage={gamerCardInnerImg1}
                 gameName={gamerCardGameName1}
                 text='Be part of the Suicide Squad and kill the Justice League!-Amanda Waller'
             />
             <GameCard  
+                theme={this.props.theme}
                 bgImage={gamerCardBg2}
                 innerImage={gamerCardInnerImg2}
                 text='Be part of the Suicide Squad and kill the Justice League!-Amanda Waller'
             />
             <GameCard
+                theme={this.props.theme}
                 type='flip'
                 bgImage={gamerCardBg3}
                 innerImage={gamerCardInnerImg3}
