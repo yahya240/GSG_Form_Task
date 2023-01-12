@@ -3,12 +3,14 @@ import PasswordStrength from '../PasswordStrength'
 import HorizentalLine from '../HorizentalLine'
 import AlertMsg from '../AlertMsg'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 import {Link,Navigate} from 'react-router-dom'
 import './style.css'
 
 export default class RegisterForm extends Component {
 
   state = {
+    username:'',
     email:'',
     password:'',
     password2:'',
@@ -55,29 +57,45 @@ export default class RegisterForm extends Component {
     this.setState({trems:!this.state.trems})
   }
 
-  handleSubmit = (e) =>{
+  handleSubmit = async (e) =>{
     e.preventDefault()
-    if(this.state.password.length < 8){
-      this.setState({alert:'error',msg:'your password should be at least 8 characters'})
+    if(this.state.password.length < 6){
+      this.setState({alert:'error',msg:'your password should be at least 6 characters'})
     }else if(this.state.password !== this.state.password2){
       this.setState({alert:'error',msg:'please make sure that passwords matched'})
     }else if(this.state.passwordStrength < 60){
       this.setState({alert:'error',msg:'your password strength should be at lease Medium strength.'})
     }else{
+      
+      const newUser = {email:this.state.email,password:this.state.password}
+      this.props.addUser(newUser);
+      // this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+      try {
+        const gsgRes = await axios.post('https://react-tt-api.onrender.com/api/users/signup',{
+          name:this.state.username,
+          email:this.state.email,
+          password:this.state.password
+        }
+      )
+      console.log({name:this.state.username,email:this.state.email,password:this.state.password});
+      console.log(gsgRes.data.token);
+      // localStorage.setItem('token',gsgRes.data.token)
       Swal.fire(
         `Hello ${this.state.email.split('@')[0]}`,
         `registered successfuly!`,
         'success'
       )
-      const newUser = {email:this.state.email,password:this.state.password}
-      this.props.addUser(newUser);
       this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+      } catch (error) {
+        this.setState({alert:'error',msg:error.response.data.message})
+        console.log(error.response.data.message);
+      }
     }
   }
 
   render() {
     if(this.state.goToLogin){
-      return <Navigate to='/' />
+      return <Navigate to='/login' />
     }
     return (
         <div className='form-section'>
@@ -87,6 +105,10 @@ export default class RegisterForm extends Component {
         </div>
         <hr />
         <form onSubmit={this.handleSubmit}>
+          <div className='form-input'>
+            <label htmlFor="username">Username*</label>
+            <input type="text" name='username' value={this.state.username} onChange={this.onChange} placeholder='Enter username' required/>
+          </div>
           <div className='form-input'>
             <label htmlFor="email">Email Address*</label>
             <input type="email" name='email' value={this.state.email} onChange={this.onChange} placeholder='Enter email address' required/>
@@ -112,7 +134,7 @@ export default class RegisterForm extends Component {
           </div>
             <HorizentalLine />
         </form>
-        <Link to='/' className='login-button' >login</Link>
+        <Link to='/login' className='login-button' >login</Link>
       </div>
     )
   }
