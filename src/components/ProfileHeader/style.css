@@ -31,3 +31,9 @@
 .header-dark-theme {
     color: #FFFFFF;
 }
+
+.gamer-profile-header-logout{
+    color: skyblue;
+    font-size: 1rem;
+    cursor: pointer;
+}
