@@ -5,6 +5,7 @@ import puzzle from '../../assets/images/gamer-profile/puzzle.png'
 import setting from '../../assets/images/gamer-profile/setting.png'
 import lightTheme from '../../assets/images/gamer-profile/light-theme.png'
 import darkTheme from '../../assets/images/gamer-profile/dark-theme.png'
+import { Link } from 'react-router-dom'
 import './style.css'
 
 export default class GamerSidebar extends Component {
@@ -15,7 +16,7 @@ export default class GamerSidebar extends Component {
           <img className='gamer-profile-gampad' src={gamePad} alt="gamePad" />
           <div className='gamer-profile-mid-icons'>
             <img src={like} alt="like" />
-            <img src={setting} alt="setting" />
+            <Link to='/userslist'><img src={setting} alt="setting" /></Link>
             <img src={puzzle} alt="puzzle" />
           </div>
           <img className='gamer-profile-light-theme' src={this.props.theme === 'dark'? darkTheme : lightTheme} alt="lightTheme" onClick={()=>this.props.toggleTheme()} />

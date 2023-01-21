@@ -1,20 +1,29 @@
 import React, { Component } from 'react'
-import {Login,Register,GamerProfile,Error} from '../../pages'
+import {Login,Register,GamerProfile,Profile,UsersList,SingleUser,Error} from '../../pages'
 import {Routes,Route} from 'react-router-dom'
+import { ProtectedRoute, ProtectedAdminRoute } from '../../components'
 
 export default class MainRoutes extends Component {
 
   state = {
     users:[],
-    isAuthorized:true
+    isAuthorized:true,
+    isAdmin:false,
   }
 
   componentDidMount(){
     const token =localStorage.getItem('token')
+    const isAdmin =localStorage.getItem('isAdmin')
     if(!token){
       this.setState({isAuthorized:false})
     }
-    console.log('token from index '+token);
+    if(Boolean(isAdmin)){
+      this.setState({isAdmin:true})
+    }
+  }
+
+  login =(type)=>{
+    this.setState({isAuthorized:true,isAdmin:type})
   }
 
   logout =() =>{
@@ -22,45 +31,18 @@ export default class MainRoutes extends Component {
     this.setState({isAuthorized:false})
   }
 
-  addUser = (newUser) => {
-    this.setState(prevState => ({users:[...prevState.users,newUser]}))
-  }
-
-  checkUser = (singleUser) =>{
-    const findingUser = this.state.users.find((user)=> user.email === singleUser.email)
-    if(findingUser){
-      if(findingUser.password!== singleUser.password){
-        return 'invalid password'
-      }
-      return 'valid'
-    }else{
-      return 'inValid'
-    }
-  }
   
   render() {
     return (
       <Routes>
             <Route index element={<GamerProfile isAuthorized={this.state.isAuthorized} logout={this.logout} />} />
-            <Route path='register' element={<Register addUser={this.addUser} />} />
-            <Route path='login' element={<Login checkUser={this.checkUser} />} />
+            <Route path='profile' element={<ProtectedRoute isAuthorized={this.state.isAuthorized}><Profile /></ProtectedRoute>} />
+            <Route path='userslist' element={<ProtectedAdminRoute isAdmin={this.state.isAdmin}><UsersList /></ProtectedAdminRoute> } />
+            <Route path='userslist/user/:id' element={<ProtectedAdminRoute isAdmin={this.state.isAdmin}><SingleUser /></ProtectedAdminRoute> } />
+            <Route path='register' element={<Register />} />
+            <Route path='login' element={<Login login={this.login} />} />
             <Route path='*' element={<Error />}/>
       </Routes>
     )
   }
 }
-
-
-// render() {
-//   return (
-//     <Routes>
-//           <Route index element={<Login checkUser={this.checkUser} />} />
-//           <Route path='register' element={<Register addUser={this.addUser} />} />
-//           <Route path='profile' element={<GamerProfile isAuthorized={this.state.isAuthorized} logout={this.logout} />} />
-//           {/* <Route path='profile' element={this.state.isAuthorized? <GamerProfile logout={this.logout} /> : <Navigate to='/' />} /> */}
-//           {/* <Route path='profile' element={this.state.users.length >= 0? <GamerProfile /> : <Navigate to='/' />} /> */}
-//           <Route path='*' element={<Error />}/>
-//     </Routes>
-//   )
-// }
-// }

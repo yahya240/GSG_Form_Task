@@ -1,0 +1,42 @@
+
+.single-user-profile-info-page{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.single-user-profile-info-page section{
+    background-color: beige;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.single-user-profile-info-page section h2{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #CFB997;
+}
+
+.single-user-profile-info-page section div{
+    padding: 3rem 0;
+}
+.single-user-profile-info-page section div h3{
+    font-size: 1rem;
+    margin: 0.3rem 0;
+}
+
+.single-user-profile-info-link{
+    display: inline-block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #f3921c;
+    border: none;
+    width: 20rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}

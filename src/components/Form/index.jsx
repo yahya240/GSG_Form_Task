@@ -7,11 +7,11 @@ export default class Form extends Component {
   render() {
     if(this.props.type === 'register'){
         return (
-          <RegisterForm addUser={this.props.addUser} />
+          <RegisterForm />
         )
       }else{
         return (
-          <LoginForm  checkUser={this.props.checkUser} />
+          <LoginForm login={this.props.login} />
         )
       }
     }
