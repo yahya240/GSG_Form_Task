@@ -66,10 +66,7 @@ export default class RegisterForm extends Component {
     }else if(this.state.passwordStrength < 60){
       this.setState({alert:'error',msg:'your password strength should be at lease Medium strength.'})
     }else{
-      
-      const newUser = {email:this.state.email,password:this.state.password}
-      this.props.addUser(newUser);
-      // this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+
       try {
         const gsgRes = await axios.post('https://react-tt-api.onrender.com/api/users/signup',{
           name:this.state.username,
@@ -77,18 +74,18 @@ export default class RegisterForm extends Component {
           password:this.state.password
         }
       )
-      console.log({name:this.state.username,email:this.state.email,password:this.state.password});
-      console.log(gsgRes.data.token);
-      // localStorage.setItem('token',gsgRes.data.token)
-      Swal.fire(
-        `Hello ${this.state.email.split('@')[0]}`,
-        `registered successfuly!`,
-        'success'
-      )
-      this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+      if(gsgRes){
+        Swal.fire(
+          `Hello ${this.state.email.split('@')[0]}`,
+          `registered successfuly!`,
+          'success'
+        )
+        this.setState({email:'',password:'',password2:'',trems:false,passwordStrength:0,goToLogin:true})
+      }else{
+        this.setState({alert:'error',msg:'try again'})
+      }
       } catch (error) {
         this.setState({alert:'error',msg:error.response.data.message})
-        console.log(error.response.data.message);
       }
     }
   }
